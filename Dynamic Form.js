@@ -20,7 +20,7 @@ export default SignUpScreen = ({ navigation }) => {
     const [diraddress, setAddress] = useState();
     const [loading, setLoading] = useState(false);
     const [profilePhoto, setProfilePhoto] = useState();
-    const [formValues, setFormValues] = useState([dirname: '', diremail: '', dirshare: '', diraddress: '']);
+    const [formValues, setFormValues] = useState([]);
      const firebase = useContext(FirebaseContext);
     const [_, setUser] = useContext(UserContext);
 
@@ -34,8 +34,7 @@ export default SignUpScreen = ({ navigation }) => {
 
       
    changeField = () => {
-      setFormValues([...formValues, HalfAuthField ]);
-       alert(typeof(HalfAuthField));
+      setFormValues([...formValues, Extras ]);
       };
    
     const pickImage = async () => {
@@ -146,54 +145,7 @@ export default SignUpScreen = ({ navigation }) => {
                
                     { formValues.map((formValue) => {
                        return ( 
-                       <AuthContainer>
-                    <AuthHold style={{justifyContent: 'flex-start',}}>
-                    <AuthTitle>Full Name</AuthTitle>
-                    <HalfAuthField
-                        style={{"margin-right": "7px"}}
-                        autoCapitalize="none"
-                        autoCorrect={false}
-                        autoFocus={true}
-                        onChangeText={(username) => setName(dirname.trim())}
-                        value={dirname}
-                    />
-                    </AuthHold>
-                    <AuthHold style={{justifyContent: 'flex-end',}}>
-                    <AuthTitle>Email</AuthTitle>
-                    <HalfAuthField
-                        autoCapitalize="none"
-                        autoCompleteType="email"
-                        autoCorrect={false}
-                        keyboardType="email-address"
-                        onChangeText={(email) => setEmail(diremail.trim())}
-                        value={diremail}
-                    />
-                    </AuthHold>
-                </AuthContainer>
-
-                    <AuthContainer>
-                    <AuthHold style={{justifyContent: 'flex-start',}}>
-                    <AuthTitle>Share Ratio</AuthTitle>
-                    <HalfAuthField
-                        style={{"margin-right": "7px"}}
-                        autoCapitalize="none"
-                        autoCorrect={false}
-                        autoFocus={true}
-                        onChangeText={(dirshare) => setShare(dirshare.trim())}
-                        value={dirshare}
-                    />
-                    </AuthHold>
-                    <AuthHold style={{justifyContent: 'flex-end',}}>
-                    <AuthTitle>Address</AuthTitle>
-                    <HalfAuthField
-                        autoCapitalize="none"
-                        autoCorrect={false}
-                        autoFocus={true}
-                        onChangeText={(diraddress) => setAddress(diraddress.trim())}
-                        value={diraddress}
-                    />
-                    </AuthHold>
-                </AuthContainer>
+                            { formValue }
                          ) 
                          })
                         }
